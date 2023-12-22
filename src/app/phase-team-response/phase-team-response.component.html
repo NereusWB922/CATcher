@@ -12,7 +12,13 @@
     </mat-menu>
   </div>
 
-  <app-issues-pending [teamFilter]="teamFilter"></app-issues-pending>
-  <app-issues-responded [teamFilter]="teamFilter"></app-issues-responded>
-  <app-issues-faulty [teamFilter]="teamFilter"></app-issues-faulty>
+  <mat-button-toggle-group #toggleGroup="matButtonToggleGroup" [(ngModel)]="currentTable">
+    <mat-button-toggle *ngFor="let table of tables" [value]="table">{{ table }}</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <div [ngSwitch]="currentTable">
+    <app-issues-pending [teamFilter]="teamFilter" *ngSwitchCase="'pending'"></app-issues-pending>
+    <app-issues-responded [teamFilter]="teamFilter" *ngSwitchCase="'responded'"></app-issues-responded>
+    <app-issues-faulty [teamFilter]="teamFilter" *ngSwitchCase="'faulty'"></app-issues-faulty>
+  </div>
 </div>

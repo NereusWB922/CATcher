@@ -4,6 +4,7 @@ import { Phase } from '../core/models/phase.model';
 import { DataService } from '../core/services/data.service';
 import { IssueService } from '../core/services/issue.service';
 import { UserService } from '../core/services/user.service';
+import { PhraseTeamResponseTable } from '../shared/issue-tables/available-tables.enum';
 
 @Component({
   selector: 'app-phase-team-response',
@@ -12,6 +13,8 @@ import { UserService } from '../core/services/user.service';
 })
 export class PhaseTeamResponseComponent implements OnInit {
   public teamFilter = 'All Teams';
+  tables: PhraseTeamResponseTable[] = Object.values(PhraseTeamResponseTable) as PhraseTeamResponseTable[];
+  currentTable: PhraseTeamResponseTable = PhraseTeamResponseTable.Pending;
 
   constructor(public userService: UserService, private dataService: DataService, private issueService: IssueService) {}
 

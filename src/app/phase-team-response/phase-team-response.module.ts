@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MarkdownModule } from 'ngx-markdown';
 import { CommentEditorModule } from '../shared/comment-editor/comment-editor.module';
 import { IssueTablesModule } from '../shared/issue-tables/issue-tables.module';
@@ -20,7 +21,8 @@ import { PhaseTeamResponseComponent } from './phase-team-response.component';
     CommentEditorModule,
     ViewIssueModule,
     MarkdownModule.forChild(),
-    IssueTablesModule
+    IssueTablesModule,
+    MatButtonToggleModule
   ],
   declarations: [PhaseTeamResponseComponent, IssueComponent, IssuesPendingComponent, IssuesRespondedComponent, IssuesFaultyComponent]
 })
