@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MarkdownModule } from 'ngx-markdown';
 import { IssueTablesModule } from '../shared/issue-tables/issue-tables.module';
 import { SharedModule } from '../shared/shared.module';
@@ -22,6 +23,14 @@ import { PhaseTesterResponseComponent } from './phase-tester-response.component'
     IssueAcceptedComponent,
     IssueFaultyComponent
   ],
-  imports: [CommonModule, PhaseTesterResponseRoutingModule, SharedModule, ViewIssueModule, IssueTablesModule, MarkdownModule.forChild()]
+  imports: [
+    CommonModule,
+    PhaseTesterResponseRoutingModule,
+    SharedModule,
+    ViewIssueModule,
+    IssueTablesModule,
+    MarkdownModule.forChild(),
+    MatButtonToggleModule
+  ]
 })
 export class PhaseTesterResponseModule {}

@@ -1,6 +1,10 @@
-<div>
-  <app-issue-pending></app-issue-pending>
-  <app-issue-responded></app-issue-responded>
-  <app-issue-faulty></app-issue-faulty>
-  <app-issue-accepted></app-issue-accepted>
+<mat-button-toggle-group #toggleGroup="matButtonToggleGroup" [(ngModel)]="currentTable">
+  <mat-button-toggle *ngFor="let table of tables" [value]="table">{{ table }}</mat-button-toggle>
+</mat-button-toggle-group>
+
+<div [ngSwitch]="currentTable">
+  <app-issue-pending *ngSwitchCase="'pending'"></app-issue-pending>
+  <app-issue-responded *ngSwitchCase="'responded'"></app-issue-responded>
+  <app-issue-faulty *ngSwitchCase="'faulty'"></app-issue-faulty>
+  <app-issue-accepted *ngSwitchCase="'accepted'"></app-issue-accepted>
 </div>
